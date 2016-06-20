@@ -1,11 +1,11 @@
-package com.codenvy.example.java;
+package com.gravityrd.candidate.pointpairs;
 
 import junit.framework.Test;
 import junit.framework.TestCase;
 import junit.framework.TestSuite;
 
 /**
- * Unit test for simple App.
+ * Unit test for the PointPairsMinDist App.
  */
 public class AppTest
         extends TestCase {
