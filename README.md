@@ -1,19 +1,8 @@
-# desktop-java-simple
+# Closest pair problem in n dimensions
 
-# Developer Workspace
+# Specification
 
-[![Contribute](http://beta.codenvy.com/factory/resources/codenvy-contribute.svg)](http://beta.codenvy.com/f?id=omriatu352kkthua)
+Your task is to create a Java/Python program which reads a text file where each line contains the coordinates of a multidimensional point, and then looks for the closest pair of points in the file. If the program has found the closest pair of points, it should output the line numbers of the two closest points.
 
-# Recipe
+The text file contains one point per line. The coordinate values are separated by a tabulator character. The coordinate values are not necessarily integers. In case of a floating point coordinate value the decimal separator is a period.
 
-FROM [codenvy/ubuntu_jdk8](https://hub.docker.com/r/codenvy/ubuntu_jdk8/)
-
-# Commands
-
-| #       | Command           | 
-| :------------- |:------------- |
-| 1      | `mvn -f ${current.project.path} clean install && java -jar ${current.project.path}/target/*.jar` |
-
-# App output
-
-App output is streamed into a console. Note that if your app expects user input, do not use command but execute jars in the terminal directly.
