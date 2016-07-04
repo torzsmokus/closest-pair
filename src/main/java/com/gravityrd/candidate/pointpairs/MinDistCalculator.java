@@ -10,7 +10,7 @@ public abstract class MinDistCalculator {
     protected List<Point> points;
     protected int dim;
     
-    protected MinDistCalculator(List<Point> points) {
+    protected void init(List<Point> points) {
         if (points.size() < 2) {
             throw new IllegalArgumentException("too few points");
         }

@@ -10,7 +10,8 @@ public class PointPairsMinDist {
 
     public static void main(String[] args) {
         ArrayList<Point> points = readPointsFromFile("points.tsv");
-        MinDistCalculator calc = new NaiveMinDistCalculator(points);
+        MinDistCalculator calc = new NaiveMinDistCalculator();
+        calc.init(points);
         System.out.println(calc.getMinDistPair());
     }
 

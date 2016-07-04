@@ -7,10 +7,6 @@ import java.util.List;
  */
 public class NaiveMinDistCalculator extends MinDistCalculator {
 
-    protected NaiveMinDistCalculator(List<Point> points) {
-        super(points);
-    }
-
     @Override
     public Result getMinDistPair() {
         int np1 = 0;

@@ -10,30 +10,40 @@ import junit.framework.TestSuite;
 /**
  * Unit test for the PointPairsMinDist App.
  */
-public class AppTest extends TestCase {
+public class PointPairsMinDistTest extends TestCase {
 
-    public AppTest(String testName) {
+    public PointPairsMinDistTest(String testName) {
         super(testName);
     }
 
     public static Test suite() {
-        return new TestSuite(AppTest.class);
+        return new TestSuite(PointPairsMinDistTest.class);
     }
 
     /**
      * Kinda integration test
      */
-    public void testApp() {
+    public void testNaive() {
+            MinDistCalculator calcNaive = new NaiveMinDistCalculator();
+            runCalculation(calcNaive);
+    }
+
+    public void testDNC() {
+            MinDistCalculator calcDNC= new DivNConqMinDistCalculator();
+            runCalculation(calcDNC);
+    }
+    
+    private void runCalculation(MinDistCalculator calc) {
         String[] testfiles = new String[] {
                     "2_8", "4_4", "3_1000", "10_100", "100_100"};
         for (String testfile : testfiles) {
             ArrayList<Point> points = PointPairsMinDist
                     .readPointsFromFile("sample_input_" + testfile + ".tsv");
-            MinDistCalculator calc = new NaiveMinDistCalculator(points);
+            calc.init(points);
             Result res = calc.getMinDistPair();
             
             try (Scanner sc = new Scanner(
-                    AppTest.class.getClassLoader() 
+                    PointPairsMinDistTest.class.getClassLoader() 
                     .getResourceAsStream("sample_output_" + testfile + ".txt")
                     )) {
                 int np1 = Integer.valueOf(sc.findInLine("\\d+"));
