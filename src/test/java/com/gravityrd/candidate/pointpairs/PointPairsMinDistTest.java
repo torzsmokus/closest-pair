@@ -1,3 +1,9 @@
+/*
+ * PointPairsMinDistTest.java
+ * 1.1-SNAPSHOT
+ * 
+ */
+
 package com.gravityrd.candidate.pointpairs;
 
 import java.util.ArrayList;
@@ -8,6 +14,7 @@ import junit.framework.TestCase;
 import junit.framework.TestSuite;
 
 /**
+ * @author RACZ Andras <racz.andr@gmail.com>
  * Unit test for the PointPairsMinDist App.
  */
 public class PointPairsMinDistTest extends TestCase {

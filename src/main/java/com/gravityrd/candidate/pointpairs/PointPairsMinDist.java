@@ -1,7 +1,15 @@
+/* 
+ * PointPairsMinDist.java 
+ * 1.1-SNAPSHOT 
+ *  
+ */ 
 package com.gravityrd.candidate.pointpairs;
 
 import java.io.BufferedReader;
+import java.io.IOException;
 import java.io.InputStreamReader;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.stream.Stream;
@@ -9,7 +17,8 @@ import java.util.stream.Stream;
 public class PointPairsMinDist {
 
     public static void main(String[] args) {
-        ArrayList<Point> points = readPointsFromFile("points.tsv");
+        String filename = (args.length > 0) ? args[0] : "points.tsv";
+        ArrayList<Point> points = readPointsFromFile(filename);
         MinDistCalculator calc = new NaiveMinDistCalculator();
         calc.init(points);
         System.out.println(calc.getMinDistPair());
@@ -17,9 +26,15 @@ public class PointPairsMinDist {
 
     static ArrayList<Point> readPointsFromFile(String fileName) {
         ArrayList<Point> points = new ArrayList<>();
-        BufferedReader reader = new BufferedReader(new InputStreamReader(
+        BufferedReader reader;
+        try {
+            reader = Files.newBufferedReader(Paths.get(fileName));
+        } catch (IOException e) {
+            InputStreamReader isr = new InputStreamReader(
                 PointPairsMinDist.class.getClassLoader()
-                .getResourceAsStream(fileName)));
+                .getResourceAsStream(fileName));
+            reader = new BufferedReader(isr);
+        }
         AtomicInteger index = new AtomicInteger(0);
         reader.lines().map(line -> Stream.of(line.split("\t")))
                 .map(s -> s.mapToDouble(Double::valueOf))

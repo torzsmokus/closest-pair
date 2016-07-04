@@ -1,3 +1,8 @@
+/*    
+ * NaiveMinDistCalculator.java    
+ * 1.1-SNAPSHOT    
+ *     
+ */
 package com.gravityrd.candidate.pointpairs;
 
 
