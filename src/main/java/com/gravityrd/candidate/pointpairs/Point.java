@@ -15,6 +15,10 @@ public class Point {
         this.coords = coords;
     }
     
+    public double[] getCoords() {
+        return coords;
+    }
+    
     public int getDimension() {
         return coords.length;
     }
